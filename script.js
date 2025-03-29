@@ -48,3 +48,10 @@ Orders.forEach(order => {
     tr.innerHTML = trContent;
     document.querySelector('table tbody').appendChild(tr)
 })
+
+// ajustar progresso dos círculos
+document.querySelectorAll('.insights .progress svg circle').forEach((circle, index) => {
+    const percentage = [65, 45, 35][index]; // Substitua pelos valores reais de porcentagem
+    const offset = 110 - (percentage / 100) * 110; // Calcula o stroke-dashoffset com base na porcentagem
+    circle.style.setProperty('--progress-value', offset);
+});
