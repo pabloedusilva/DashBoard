@@ -336,14 +336,24 @@ main .insights svg {
 
 }
 
+@keyframes progressAnimation {
+    from {
+        stroke-dashoffset: 110; /* Valor inicial (círculo vazio) */
+    }
+    to {
+        stroke-dashoffset: var(--progress-value); /* Valor final baseado na porcentagem */
+    }
+}
+
 main .insights svg circle {
     fill: none;
     stroke: var(--color-primary);
     stroke-width: 14;
     stroke-linecap: round;
     transform: translate(5px, 5px);
-    stroke-dasharray: 110;
-    stroke-dashoffset: 92;
+    stroke-dasharray: 110; /* Comprimento total do círculo */
+    stroke-dashoffset: 110; /* Começa vazio */
+    animation: progressAnimation 2s ease-out forwards; /* Animação de 2 segundos */
 }
 
 main .insights .sales svg circle {
